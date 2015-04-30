@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+    <title>SPA Starter</title>
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="css/spa.css" type="text/css"/>
+    <link rel="stylesheet" href="css/spa.shell.css" type="text/css"/>
+
+    <!-- third-party javascript -->
+    <script src="js/jq/jquery-1.11.2.js"></script>
+    <script src="js/jq/jquery.uriAnchor-1.2.1.js"></script>
+
+    <!-- my javascript - should be ordered by depth of namespace. 'spa' must be declared before we can
+    declare its children, for example 'spa.shell.js' -->
+    <script src="js/spa.js"></script>
+    <script src="js/spa.shell.js"></script>
+    <script>
+        $(function() { spa.initModule( $('#spa'));})
+    </script>
+</head>
+<body>
+    <div id="spa"></div>
+</body>
+</html>
+
+<!--
+Why not put scripts at the end of the body container like in a traditional web page? The aforementioned approach usually
+allows the page to render faster, as static HTML and CSS can be displayed before the JavaScript finishes loading.
+
+NOTE: SPAs don’t work like that.
+They generate the HTML with JavaScript, and therefore placing the scripts outside the header does not result in faster
+rendering. Instead, keep all of the external scripts in the head section to improve organization and legibility.
+-->
